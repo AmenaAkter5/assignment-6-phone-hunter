@@ -70,8 +70,8 @@ const loadPhoneDetail = phoneId => {
 
 // Display Phone Detail
 
-const displayPhoneById = phone => {
-    console.log(phone);
+const displayPhoneById = (phone, features) => {
+    console.log(phone.mainFeatures);
 
     const phoneDetails = document.getElementById('phn-details');
     // clear previous phone Details
@@ -80,12 +80,28 @@ const displayPhoneById = phone => {
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
-        <img src="${phone.image}" class="card-img-top" alt="...">
+        <div class="row">
+            <div class="col col-lg-8 mx-auto">
+                <img src="${phone.image}" class="card-img-top" alt="...">
+            </div>
+        </div>
             <div class="card-body">
-                <h5 class="card-title fw-bold">${phone.name}</h5>
-                <h6 class="card-text">${phone.releaseDate}</h6>
+                <h5 class="card-title fw-bold text-center">${phone.name}</h5>
+                <h6 class="card-text text-center">${phone.releaseDate}</h6>
                 <h6 class="card-text">Brand: <span class="fw-bold">${phone.brand}</span></h6>
+                <p><span class="fw-bold">Main Features:</span></p>
+                <ul id="features"></ul>
             </div>
     `;
     phoneDetails.appendChild(div);
+
+    const mainFeaturesUl = document.getElementById('features');
+    features = phone.mainFeatures;
+    for (const feature in features) {
+        // console.log(feature, features[feature]);
+
+        const li = document.createElement('li');
+        li.innerText = `${feature}- ${features[feature]}`;
+        mainFeaturesUl.appendChild(li);
+    }
 }
