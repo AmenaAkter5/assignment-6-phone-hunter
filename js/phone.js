@@ -13,11 +13,10 @@ const searchPhone = () => {
     const searchText = searchBox.value;
 
     // clear the search box
-    // searchBox.value = '';
+    searchBox.value = '';
 
     // get the API as Search Text
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-
 
     // load phones data
     fetch(url)
@@ -29,14 +28,14 @@ const searchPhone = () => {
 // 2. display search result function
 
 const displaySearchResult = (phones) => {
-    // clear previous search result
+
+    // clear previous search results
     const searchResultDiv = document.getElementById('search-result');
     searchResultDiv.textContent = '';
 
     // clear previous phone Details
     const phoneDetails = document.getElementById('phn-details');
     phoneDetails.textContent = '';
-
 
     // if no result is shown
     if (phones.length === 0) {
@@ -49,13 +48,13 @@ const displaySearchResult = (phones) => {
     const noResult = document.getElementById('no-result');
     noResult.textContent = '';
 
-    // to get the search result will not more than 20
+    // to get the search result not more than 20
     const phoneSliced = phones.slice(0, 20);
 
     // for-each
     phoneSliced.forEach(phone => {
 
-        // create card for phone results
+        // create grid card for phone results
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -77,7 +76,8 @@ const displaySearchResult = (phones) => {
 // 3. Load Phone Detail function
 
 const loadPhoneDetail = phoneId => {
-    // get the API by click on single phone button
+
+    // get the API by click on single phone card button
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`
 
     // get phone data
@@ -90,10 +90,9 @@ const loadPhoneDetail = phoneId => {
 // 4. Display Phone Detail function
 
 const displayPhoneById = (phone) => {
-    console.log(phone);
-    const phoneDetails = document.getElementById('phn-details');
 
     // clear previous phone Details
+    const phoneDetails = document.getElementById('phn-details');
     phoneDetails.textContent = '';
 
     // create card for phone details
@@ -112,9 +111,10 @@ const displayPhoneById = (phone) => {
                 <h6 class="card-text fw-bold">Main Features:</h6>
                 <ul id="main-features"></ul>
                 <h6 class="card-text fw-bold">Others:</h6>
-                <ul id="others"><span id="li-text"></span></ul>
+                <ul id="others"></ul>
             </div>
     `;
+
     phoneDetails.appendChild(div);
 
     // if release date is not available
@@ -133,7 +133,7 @@ const displayPhoneById = (phone) => {
         mainFeaturesUl.appendChild(li);
     }
 
-    // create others list
+    // create others information list
     const othersUl = document.getElementById('others');
     const others = phone.others;
     for (const other in others) {
