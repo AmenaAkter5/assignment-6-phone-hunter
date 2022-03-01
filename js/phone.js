@@ -87,7 +87,6 @@ const loadPhoneDetail = phoneId => {
 }
 
 
-
 // 4. Display Phone Detail function
 
 const displayPhoneById = (phone) => {
