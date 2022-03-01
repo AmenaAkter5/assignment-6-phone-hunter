@@ -1,5 +1,11 @@
 
 
+// "no-result" message is hidden by default
+
+const noResult = document.getElementById('no-result');
+noResult.style.display = 'none';
+
+
 // 1. search Phone function
 
 const searchPhone = () => {
@@ -31,12 +37,17 @@ const displaySearchResult = (phones) => {
     const phoneDetails = document.getElementById('phn-details');
     phoneDetails.textContent = '';
 
+
     // if no result is shown
     if (phones.length === 0) {
         const noResult = document.getElementById('no-result');
         noResult.style.display = 'block';
         return;
     }
+
+    // clear no result message by search button click
+    const noResult = document.getElementById('no-result');
+    noResult.textContent = '';
 
     // to get the search result will not more than 20
     const phoneSliced = phones.slice(0, 20);
