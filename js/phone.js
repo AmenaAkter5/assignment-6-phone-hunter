@@ -73,7 +73,7 @@ const displaySearchResult = (phones) => {
 }
 
 
-// 3. Load Phone Detail function
+// 3. Load Phone Detail by Id function
 
 const loadPhoneDetail = phoneId => {
 
