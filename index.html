@@ -25,52 +25,50 @@
 
 <body class="container">
 
-    <main>
-        <!-------- Phone Search Field ------->
-        <!-- ============================= -->
+    <!-------- Phone Search Field ------->
+    <!-- ============================= -->
 
-        <section>
-            <div class="row justify-content-md-center mt-5">
-                <div class="col col-lg-6 col-12">
-                    <h1 class="text-center text-success my-3 fw-bold">Phone World</h1>
-                    <div class="input-group mb-3">
-                        <input id="search-box" type="text" class="form-control"
-                            placeholder="Search Your Most Wanted phone..." aria-label="Recipient's username"
-                            aria-describedby="button-addon2">
-                        <button onclick="searchPhone()" class="btn btn-outline-success fw-bold" type="button"
-                            id="button-search">Search</button>
-                    </div>
+    <section class="my-4">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6 col-12">
+                <h1 class="text-center text-success mb-4 fw-bold">Phone World</h1>
+                <div class="input-group mb-3">
+                    <input id="search-box" type="text" class="form-control"
+                        placeholder="Search Your Most Wanted phone..." aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
+                    <button onclick="searchPhone()" class="btn btn-outline-success fw-bold" type="button"
+                        id="button-search">Search</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- error message -->
-        <!-- <div>
+    <!-- error message -->
+    <!-- <div>
             <p id="error-message" class="text-danger text-center">Something went wrong. Please try again later.</p>
         </div> -->
 
 
-        <!-------- no-result message ------->
-        <!-- ============================ -->
+    <!-------- no-result message ------->
+    <!-- ============================ -->
 
-        <div>
-            <p id="no-result" class="text-danger text-center">No result is found.</p>
-        </div>
+    <div>
+        <p id="no-result" class="text-danger text-center">No result is found.</p>
+    </div>
 
-        <!----------- Single Phone Details -------->
-        <!-- =================================== -->
+    <!----------- Single Phone Details -------->
+    <!-- =================================== -->
 
-        <div id="phn-details" class="w-50 mx-auto"></div>
+    <div id="phn-details" class="w-50 mx-auto"></div>
 
 
-        <!------- Phone Search Result ------>
-        <!-- ============================= -->
+    <!------- Phone Search Result ------>
+    <!-- ============================= -->
 
-        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
-            <!-- বাকি column গুলোকে ফেলে দিলাম। dynamically বানাবো 'col' div ও এর পর 'row' div এ add করবো -->
-        </div>
+    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- বাকি column গুলোকে ফেলে দিলাম। dynamically বানাবো 'col' div ও এর পর 'row' div এ add করবো -->
+    </div>
 
-    </main>
 
     <!--------- BootStrap JavaScript -------->
     <!-- ================================== -->
