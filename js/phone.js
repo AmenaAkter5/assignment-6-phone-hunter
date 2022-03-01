@@ -73,7 +73,17 @@ const displayPhoneById = phone => {
     console.log(phone);
 
     const phoneDetails = document.getElementById('phn-details');
-
     // clear previous mealdetails
     phoneDetails.textContent = '';
+
+    const div = document.createElement('div');
+    div.classList.add('card');
+    div.innerHTML = `
+        <img src="${phone.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title fw-bold">${phone.name}</h5>
+            <h6 class="card-text">${phone.releaseDate}</h6>
+        </div>
+    `;
+    phoneDetails.appendChild(div);
 }
