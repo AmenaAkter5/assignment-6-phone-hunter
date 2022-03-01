@@ -103,7 +103,7 @@ const displayPhoneById = (phone) => {
             <div class="card-body">
                 <h5 class="card-title fw-bold text-center">${phone.name}</h5>
                 <h6 id="release-date" class="card-text text-center">${phone.releaseDate}</h6>
-                <h6 class="card-text text-center mb-4">Brand: <span class="fw-bold">${phone.brand}</span></h6>
+                <h6 class="card-text text-center mb-4">Brand: <span class="text-success fw-bold">${phone.brand}</span></h6>
                 <h6 class="card-text fw-bold">Main Features:</h6>
                 <ul id="main-features"></ul>
                 <h6 class="card-text fw-bold">Others:</h6>
