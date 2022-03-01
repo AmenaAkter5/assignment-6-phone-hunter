@@ -44,7 +44,7 @@ const displaySearchResult = (phones) => {
                 <div class="card-body">
                     <h5 class="card-title fw-bold">${phone.phone_name}</h5>
                     <h5 class="card-title">Brand: <span class="fw-bold">${phone.brand}</span></h5>
-                    <button class="mt-3 mb-2" onclick="loadMealDetail('${phone.slug}')">Details</button>
+                    <button class="mt-3 mb-1" onclick="loadPhoneDetail('${phone.slug}')">Details</button>
                 </div>
             </div>
         `;
@@ -55,7 +55,7 @@ const displaySearchResult = (phones) => {
 
 // load Phone Detail
 
-const loadMealDetail = phoneId => {
+const loadPhoneDetail = phoneId => {
     // console.log(phoneId);
 
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`
@@ -67,23 +67,25 @@ const loadMealDetail = phoneId => {
 }
 
 
+
 // Display Phone Detail
 
 const displayPhoneById = phone => {
     console.log(phone);
 
     const phoneDetails = document.getElementById('phn-details');
-    // clear previous mealdetails
+    // clear previous phone Details
     phoneDetails.textContent = '';
 
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
         <img src="${phone.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title fw-bold">${phone.name}</h5>
-            <h6 class="card-text">${phone.releaseDate}</h6>
-        </div>
+            <div class="card-body">
+                <h5 class="card-title fw-bold">${phone.name}</h5>
+                <h6 class="card-text">${phone.releaseDate}</h6>
+                <h6 class="card-text">Brand: <span class="fw-bold">${phone.brand}</span></h6>
+            </div>
     `;
     phoneDetails.appendChild(div);
 }
