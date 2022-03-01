@@ -1,4 +1,5 @@
 
+
 // "no-result" message is hidden by default
 
 const noResult = document.getElementById('no-result');
@@ -31,6 +32,14 @@ const displaySearchResult = (phones) => {
     const searchResultDiv = document.getElementById('search-result');
     // clear previous result
     searchResultDiv.textContent = '';
+
+    // if no result is shown
+
+    if (phones.length == 0) {
+        const noResult = document.getElementById('no-result');
+        noResult.style.display = 'block';
+        return;
+    }
 
     // for-each
     phones.forEach(phone => {
@@ -71,7 +80,7 @@ const loadPhoneDetail = phoneId => {
 // Display Phone Detail
 
 const displayPhoneById = (phone, features) => {
-    console.log(phone.mainFeatures);
+    console.log(phone);
 
     const phoneDetails = document.getElementById('phn-details');
     // clear previous phone Details
@@ -87,15 +96,21 @@ const displayPhoneById = (phone, features) => {
         </div>
             <div class="card-body">
                 <h5 class="card-title fw-bold text-center">${phone.name}</h5>
-                <h6 class="card-text text-center">${phone.releaseDate}</h6>
+                <h6 id="release-date" class="card-text text-center">${phone.releaseDate}</h6>
                 <h6 class="card-text">Brand: <span class="fw-bold">${phone.brand}</span></h6>
                 <p><span class="fw-bold">Main Features:</span></p>
-                <ul id="features"></ul>
+                <ul id="main-features"></ul>
             </div>
     `;
     phoneDetails.appendChild(div);
 
-    const mainFeaturesUl = document.getElementById('features');
+    const releaseDate = document.getElementById('release-date');
+    if (phone.releaseDate === "") {
+        releaseDate.innerText = 'Released date is not available';
+        releaseDate.style.color = 'red';
+    }
+
+    const mainFeaturesUl = document.getElementById('main-features');
     features = phone.mainFeatures;
     for (const feature in features) {
         // console.log(feature, features[feature]);
