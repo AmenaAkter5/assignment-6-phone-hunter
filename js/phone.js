@@ -1,11 +1,5 @@
 
 
-// "no-result" message is hidden by default
-
-const noResult = document.getElementById('no-result');
-noResult.style.display = 'none';
-
-
 // 1. search Phone function
 
 const searchPhone = () => {
@@ -42,11 +36,11 @@ const displaySearchResult = (phones) => {
     // clear previous phone Details
     const phoneDetails = document.getElementById('phn-details');
     phoneDetails.textContent = '';
-
+    debugger;
     // if no result is shown
     if (phones.length === 0) {
         const noResult = document.getElementById('no-result');
-        noResult.style.display = 'block';
+        noResult.innerText = 'Sorry No result is found!!';
         return;
     }
 
@@ -64,15 +58,15 @@ const displaySearchResult = (phones) => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-            <div class="card h-100">
-                <img src="${phone.image}" class="card-img-top p-2" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">${phone.phone_name}</h5>
-                    <h5 class="card-title">Brand: <span class="fw-bold">${phone.brand}</span></h5>
-                    <button class="mt-3 mb-1 btn btn-success fw-bold" onclick="loadPhoneDetail('${phone.slug}')">Details</button>
-                </div>
+        <div class="card h-100">
+            <img src="${phone.image}" class="card-img-top p-2" alt="...">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">${phone.phone_name}</h5>
+                <h5 class="card-title">Brand: <span class="fw-bold">${phone.brand}</span></h5>
+                <button class="mt-3 mb-1 btn btn-success fw-bold" onclick="loadPhoneDetail('${phone.slug}')">Details</button>
             </div>
-        `;
+        </div>
+    `;
 
         searchResultDiv.appendChild(div);
     })
