@@ -36,7 +36,7 @@ const displaySearchResult = (phones) => {
     // clear previous phone Details
     const phoneDetails = document.getElementById('phn-details');
     phoneDetails.textContent = '';
-    debugger;
+
     // if no result is shown
     if (phones.length === 0) {
         const noResult = document.getElementById('no-result');
