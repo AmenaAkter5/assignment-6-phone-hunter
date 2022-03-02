@@ -15,6 +15,12 @@ const searchPhone = () => {
     // clear the search box
     searchBox.value = '';
 
+    // if search text is empty
+    if (searchText === '') {
+        alert('please input the text here!');
+        return;
+    }
+
     // get the API as Search Text
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
 
